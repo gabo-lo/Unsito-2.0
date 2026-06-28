@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>UP - UnsitosPost | Gaceta Universitaria</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+    <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-hamburguesa" id="abrirMenu" aria-label="Menú">☰</button>
+        <a href="index.html" class="logo">
+            <img src="imagenes/logoUNSIS.png" alt="UP">
+            <div>UnsitosPost <span>Gaceta Universitaria</span></div>
+        </a>
+    </div>
+    <div class="header-actions">
+        <a href="#" class="boton-login" id="loginBtn">Iniciar Sesión</a>
+        <span id="userBadge" style="color:#fff;display:none;"></span>
+        <button id="logoutBtn" class="boton-login" style="display:none;background:#5a0200;">Cerrar</button>
+    </div>
+</header>
+
+<!-- ===== MENÚ LATERAL ===== -->
+<div class="overlay" id="overlayMenu"></div>
+<nav class="menu-lateral" id="menuLateral">
+    <button class="cerrar-menu" id="cerrarMenu">✕</button>
+    <a href="index.html">Inicio</a>
+    <a href="#secciones">Secciones</a>
+    <a href="#noticias">Noticias</a>
+    <a href="#eventos">Eventos</a>
+    <a href="#servicios">Servicios</a>
+    <a href="secciones/jornadas.html">Jornadas</a>
+    <a href="secciones/concursos.html">Concursos</a>
+    <a href="secciones/previaDeportes.html">Deportes</a>
+    <a href="#" id="adminLink" style="display:none;">Panel Admin</a>
+</nav>
+
+<!-- ===== CONTENIDO PRINCIPAL ===== -->
+<div class="main-container">
+
+    <!-- ===== (CARRUSEL) ===== -->
+    <section class="hero">
+        <div class="hero-slides" id="heroSlides">
+            <!-- Slide 1 -->
+            <div class="hero-slide">
+                <img src="imagenes/portico.png" alt="Bienvenidos">
+                <div class="hero-overlay">
+                    <span class="tag">Destacado</span>
+                    <h2>Bienvenidos Universidad de la Sierra Sur</h2>
+                    <p>Información relevante y actual sobre la vida universitaria</p>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <img src="imagenes/basquet.png" alt="Torneo de Baloncesto">
+                <div class="hero-overlay">
+                    <span class="tag">Deportes</span>
+                    <h2>Torneo de Baloncesto 2026</h2>
+                    <p>Inscripciones abiertas para el campeonato interuniversitario</p>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <img src="imagenes/conferencias.png" alt="Ciclo de Conferencias">
+                <div class="hero-overlay">
+                    <span class="tag">Académico</span>
+                    <h2>Ciclo de Conferencias 2026</h2>
+                    <p>Ponencias de expertos en diversas áreas del conocimiento</p>
+                </div>
+            </div>
+        </div>
+        <div class="hero-dots" id="heroDots">
+            <span class="hero-dot activo" data-index="0"></span>
+            <span class="hero-dot" data-index="1"></span>
+            <span class="hero-dot" data-index="2"></span>
+        </div>
+        <div class="hero-controles">
+            <button id="heroPrev">❮</button>
+            <button id="heroNext">❯</button>
+        </div>
+    </section>
+
+    <!-- ===== ACERCA ===== -->
+    <section class="seccion">
+        <h2 class="seccion-titulo">Acerca de</h2>
+        <p class="seccion-subtitulo" style="max-width:700px;margin:0 auto 10px;">
+            La Universidad  de la Sierra Sur es un espacio para la comunidad, con información actualizada sobre actividades académicas, culturales, deportivas y servicios.
+        </p>
+    </section>
+
+    <!-- ===== SECCIONES ===== -->
+    <section class="seccion" id="secciones">
+        <h2 class="seccion-titulo">Explora la UNSIS</h2>
+        <p class="seccion-subtitulo">Conoce todo lo que nuestra universidad tiene para ti</p>
+        <div class="grid-categorias">
+            <div class="categoria-card">
+                <div class="icono">📢</div>
+                <h3>Secciones</h3>
+                <p>Conferencias, cultura, jornadas</p>
+            </div>
+            <div class="categoria-card">
+                <div class="icono">📰</div>
+                <h3>Avisos</h3>
+                <p>Deportes, concursos, cartelera</p>
+            </div>
+            <div class="categoria-card">
+                <div class="icono">⭐</div>
+                <h3>Especiales</h3>
+                <p>Contenido destacado</p>
+            </div>
+            <div class="categoria-card">
+                <div class="icono">🏥</div>
+                <h3>Servicios</h3>
+                <p>Clínica, odontología, nutrición</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== NOTICIAS DESTACADAS ===== -->
+    <section class="seccion" id="noticias">
+        <h2 class="seccion-titulo">Contenido Destacado</h2>
+        <p class="seccion-subtitulo">Avisos importantes que no puedes perderte</p>
+        <div class="grid-noticias">
+            <!-- Noticia 1 -->
+            <div class="noticia-card">
+                <img src="imagenes/basquet.jpg" alt="Torneo de Baloncesto">
+                <div class="cuerpo">
+                    <span class="etiqueta">Deportes</span>
+                    <h3>Torneo de Baloncesto 2026</h3>
+                    <p>Inscripciones abiertas para el campeonato interuniversitario. Participa con tu equipo.</p>
+                    <a href="secciones/previaDeportes.html" class="boton-leer">Ver más →</a>
+                </div>
+            </div>
+            <!-- Noticia 2 -->
+            <div class="noticia-card">
+                <img src="imagenes/Jornadas.png" alt="Jornadas Académicas">
+                <div class="cuerpo">
+                    <span class="etiqueta">Jornadas</span>
+                    <h3>Jornadas Académicas 2026</h3>
+                    <p>Conferencias, talleres y ponencias con expertos. ¡No te lo pierdas!</p>
+                    <a href="secciones/jornadas.html" class="boton-leer">Ver más →</a>
+                </div>
+            </div>
+            <!-- Noticia 3 -->
+            <div class="noticia-card">
+                <img src="imagenes/calaveritas.jpg" alt="Concurso de Calaveritas">
+                <div class="cuerpo">
+                    <span class="etiqueta">Concursos</span>
+                    <h3>Concurso de Calaveritas 2026</h3>
+                    <p>Participa con tu mejor calaverita literaria. Premios sorpresa.</p>
+                    <a href="secciones/concursos.html" class="boton-leer">Ver más →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== EVENTOS ===== -->
+    <section class="seccion" id="eventos">
+        <h2 class="seccion-titulo">Próximos Eventos</h2>
+        <p class="seccion-subtitulo">Cartelera, concursos y actividades futuras</p>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="fecha">Próximamente</div>
+                <div class="contenido">
+                    <span class="badge">Cine</span>
+                    <h4>Cartelera de Cine UNSIS</h4>
+                    <p>Disfruta de las mejores películas en el paraninfo universitario</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="fecha">Inscripciones abiertas</div>
+                <div class="contenido">
+                    <span class="badge">Concurso</span>
+                    <h4>Concurso de Calaveritas 2026</h4>
+                    <p>Participa con tu mejor calaverita literaria y gana premios</p>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="fecha">Próximo torneo</div>
+                <div class="contenido">
+                    <span class="badge">Deportes</span>
+                    <h4>Torneo de Baloncesto Interuniversitario</h4>
+                    <p>Inscripciones abiertas para el campeonato de baloncesto 2026</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== SERVICIOS ===== -->
+    <section class="seccion" id="servicios">
+        <h2 class="seccion-titulo">Servicios</h2>
+        <p class="seccion-subtitulo">Atención médica, odontológica y nutricional para la comunidad</p>
+        <div class="grid-noticias">
+            <div class="noticia-card">
+                <img src="imagenes/ClinicaUniversitaria.jpg" alt="Clínica Universitaria">
+                <div class="cuerpo">
+                    <h3>Clínica Universitaria</h3>
+                    <p>Servicios médicos integrales y consulta externa de alta calidad.</p>
+                </div>
+            </div>
+            <div class="noticia-card">
+                <img src="imagenes/cina.jpg" alt="CINA - Nutrición">
+                <div class="cuerpo">
+                    <h3>CINA - Nutrición</h3>
+                    <p>Planes de alimentación personalizados, promoviendo hábitos saludables.</p>
+                </div>
+            </div>
+            <div class="noticia-card">
+                <img src="imagenes/ClinicaOdontologica.png" alt="Clínica Odontológica">
+                <div class="cuerpo">
+                    <h3>Clínica Odontológica</h3>
+                    <p>Tratamientos odontológicos especializados y preventivos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== PANEL DE ADMIN (oculto por defecto) ===== -->
+    <section class="admin-panel oculto" id="adminPanel">
+        <h2> Panel de Administración</h2>
+        <p>Aquí puedes editar el contenido. Los cambios se guardan en el navegador.</p>
+        <div id="adminMensaje"></div>
+
+        <label>Módulo a editar</label>
+        <select id="moduloSelect">
+            <option value="hero">Hero (Carrusel)</option>
+            <option value="noticias">Noticias</option>
+            <option value="eventos">Eventos</option>
+            <option value="servicios">Servicios</option>
+        </select>
+        <div id="formAdmin"></div>
+    </section>
+</div>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+    <div class="footer-inner">
+        <div>
+            <h4>UP~UnsitosPost</h4>
+            <p>Gaceta Universitaria UNSIS</p>
+        </div>
+        <div>
+            <h4>Contacto</h4>
+            <p>Universidad de la Sierra Sur</p>
+            <ul>
+                <li>951 572 4100 ext. 1204</li>
+                <li>informacion.escolares.unsis@gmail.com</li>
+            </ul>
+        </div>
+        <div>
+            <h4>Enlaces</h4>
+            <p><a href="index.html" style="opacity:0.8;">Inicio</a></p>
+            <p><a href="#" id="loginFooter" style="opacity:0.8;">Iniciar Sesión</a></p>
+        </div>
+    </div>
+    <div class="footer-bottom">© 2026 UP~UnsitosPost. Todos los derechos reservados.</div>
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

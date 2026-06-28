@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="../imagenes/logoUNSIS.png">
+    <title>UP - Deportes</title>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <header class="header">
+        <div style="display:flex; align-items:center; gap:12px;">
+            <a href="../index.html" class="logo">
+                <img src="../imagenes/logoUNSIS.png" alt="UP" style="height:52px;width:52px;border-radius:50%;border:2px solid rgba(255,255,255,0.25);">
+                <div>UnsitosPost <span style="font-size:14px;font-weight:normal;opacity:0.8;display:block;letter-spacing:2px;">Gaceta Universitaria</span></div>
+            </a>
+        </div>
+        <div class="header-actions">
+            <a href="#" class="boton-login" id="loginBtn">Iniciar Sesión</a>
+            <span id="userBadge" style="color:#fff;display:none;"></span>
+            <button id="logoutBtn" class="boton-login" style="display:none;background:#5a0200;">Cerrar</button>
+        </div>
+    </header>
+
+    <main class="main-content" style="max-width:1200px;margin:20px auto;padding:0 20px;">
+        <section class="seccion-principal" style="background:#fff;border-radius:14px;padding:28px 30px;margin-bottom:25px;box-shadow:0 2px 12px rgba(0,0,0,0.05);">
+            <h2 class="titulo-pagina" style="color:#770300;font-size:26px;text-align:center;margin-bottom:6px;">Sección de Deportes</h2>
+            <p class="descripcion-pagina" style="text-align:center;color:#666;margin-bottom:20px;font-size:15px;">Consulta los próximos torneos y resultados de la UNSIS.</p>
+
+            <div style="background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 10px rgba(0,0,0,0.06);border:1px solid #f0f0f0;">
+                <img src="../imagenes/basquet.jpg" alt="Convocatoria Básquetbol" style="width:100%;height:auto;max-height:500px;object-fit:contain;">
+                <div style="padding:16px 18px 20px;">
+                    <h3 style="font-size:18px;margin-bottom:6px;color:#1a1a1a;">📢 ¡SE ABRE LA CONVOCATORIA DE LA LIGA DE BÁSQUETBOL UNSIS! 🏀</h3>
+
+                    <p style="color:#555;font-size:14px;line-height:1.6;">La Universidad de la Sierra Sur invita a la comunidad universitaria a participar en la emocionante liga de Básquetbol.</p>
+
+                    <div style="color:#555;font-size:14px;line-height:1.6;margin:10px 0;">
+                        <strong>🔥 RAMAS:</strong>
+                        <ul>
+                            <li>Femenil ⛹️‍♀️</li>
+                            <li>Varonil ⛹️‍♂️</li>
+                        </ul>
+                    </div>
+
+                    <div style="color:#555;font-size:14px;line-height:1.6;margin:10px 0;">
+                        <strong>¿Cómo participar?</strong>
+                        <ol>
+                            <li>Reúne a tu equipo</li>
+                            <li>Consulta las bases completas</li>
+                            <li>Inscríbete antes del <strong>07 de noviembre</strong></li>
+                        </ol>
+                    </div>
+
+                    <div style="text-align:center;margin-top:20px;">
+                        <a href="http://survey.unsis.edu.mx/index.php/674674?lang=es-MX" class="boton" target="_blank" style="display:inline-block;background:#770300;color:#fff;padding:8px 22px;border-radius:30px;border:none;font-size:14px;cursor:pointer;text-decoration:none;">
+                            Registrar mi equipo aquí
+                        </a>
+                    </div>
+
+                    <p style="margin-top:20px;font-style:italic;text-align:center;color:#555;font-size:14px;line-height:1.6;">
+                        ¡No dejes que te lo cuenten! Forma tu equipo, entrena y sé el próximo campeón de la UNSIS.
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div>
+                <h4>UP~UnsitosPost</h4>
+                <p>Gaceta Universitaria UNSIS</p>
+            </div>
+            <div>
+                <h4>Contacto</h4>
+                <p>Universidad de la Sierra Sur</p>
+                <ul>
+                    <li>951 572 4100 ext. 1204</li>
+                    <li>informacion.escolares.unsis@gmail.com</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Enlaces</h4>
+                <p><a href="../index.html" style="opacity:0.8;">Inicio</a></p>
+                <p><a href="#" id="loginFooter" style="opacity:0.8;">Iniciar Sesión</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">© 2026 UP~UnsitosPost. Todos los derechos reservados.</div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+
+</html>
