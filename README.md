@@ -1,4 +1,4 @@
-# 🏛️ UP - UnsitosPost | Gaceta Universitaria
+#  UP - UnsitosPost | Gaceta Universitaria
 
 [![Tecnologías](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)](https://developer.mozilla.org/es/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)](https://developer.mozilla.org/es/docs/Web/CSS)
@@ -13,13 +13,12 @@
 - [ Arquitectura del Proyecto](#️-arquitectura-del-proyecto)
 - [ Tecnologías y Versiones](#️-tecnologías-y-versiones)
 - [ Instalación y Ejecución](#-instalación-y-ejecución)
-- [ Endpoints y Navegación](#-endpoints-y-navegación)
+- [ Tabla de Funciones del Sistema](#-Tabla-de-funciones-del-sistema)
 - [ Funcionalidades Principales](#-funcionalidades-principales)
 - [ Credenciales de Administración](#-credenciales-de-administración)
 - [ Video de Demostración](#-video-de-demostración)
 - [ Estructura del Código](#-estructura-del-código)
 - [ Responsividad](#-responsividad)
-- [ Contribuciones](#-contribuciones)
 - [ Créditos](#-créditos)
 - [ Estado del Proyecto](#-estado-del-proyecto)
 
@@ -45,7 +44,7 @@ El sistema incluye un **panel de administración** que permite gestionar el cont
 ##  Arquitectura del Proyecto
 
 El proyecto sigue una arquitectura **Frontend-Only** con almacenamiento local, diseñada para ser ligera, eficiente y fácil de modificar. A continuación se muestra la estructura completa de archivos:
-
+```bash
 unsitospost/
 │
 ├── index.html # Página principal
@@ -74,7 +73,7 @@ unsitospost/
 └── formato/ # Componentes reutilizables
 ├── header.html # Encabezado
 └── footer.html # Pie de página
-
+```
 
 ### Frontend
 
@@ -268,13 +267,12 @@ Enlace directo al video: https://youtu.be/TU_VIDEO_ID
 ### Contenido del Video
 | Tiempo | Sección | Contenido |
 |--------|---------|-----------|
-| **0:00 - 1:00** | 🎬 Introducción | Presentación del proyecto y objetivos |
-| **1:00 - 3:00** | 📁 Estructura del Código | Organización de archivos y carpetas |
-| **3:00 - 5:00** | 🖥️ Frontend - Navegación | Recorrido por las páginas principales |
-| **5:00 - 7:00** | ⚙️ Funcionalidades | Carrusel, noticias, eventos y servicios |
-| **7:00 - 10:00** | 🔧 Panel de Administración | Login, CRUD y edición en tiempo real |
-| **10:00 - 12:00** | 💻 Código Destacado | Explicación de funciones clave |
-| **12:00 - 13:00** | 📌 Conclusión | Resumen y cierre |
+| **0:00 - 00:45** |  Introducción | Presentación del proyecto y objetivos |
+| **00:45 - 2:30** |  Estructura del Código | Organización de archivos y carpetas |
+| **02:30 - 5:55** |  Frontend - Navegación | Funcionalidades | Carrusel, noticias, eventos y servicios |
+| **05:55 - 10:07** |  Panel de Administración | Login, CRUD y edición en tiempo real |
+| **10:07 - 13:50** |  Código Destacado | Explicación de funciones clave |
+| **13:50 - 16:00** |  Conclusión | Resumen y cierre |
 
 
 ## Estructura del código
