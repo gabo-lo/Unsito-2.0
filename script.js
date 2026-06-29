@@ -23,6 +23,173 @@ const DATOS_POR_DEFECTO = {
         { titulo: "Clínica Odontológica", texto: "Tratamientos odontológicos especializados y preventivos.", imagen: "imagenes/ClinicaOdontologica.png" }
     ]
 };
+// ============================================================
+//   CARGA DE COMPONENTES (Header y Footer)
+// ============================================================
+
+function cargarComponentes() {
+    // Cargar Header
+    fetch('formato/header.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No se pudo cargar el header');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('header-container').innerHTML = data;
+            // Reconfigurar eventos después de cargar el header
+            configurarEventosHeader();
+        })
+        .catch(error => {
+            console.error('Error cargando header:', error);
+            // Fallback: mostrar header por defecto
+            document.getElementById('header-container').innerHTML = `
+                <header class="header">
+                    <div class="header-left">
+                        <button class="menu-hamburguesa" id="abrirMenu" aria-label="Menú">☰</button>
+                        <a href="index.html" class="logo">
+                            <img src="imagenes/logoUNSIS.png" alt="UP">
+                            <div>UnsitosPost <span>Gaceta Universitaria</span></div>
+                        </a>
+                    </div>
+                    <div class="header-actions">
+                        <a href="#" class="boton-login" id="loginBtn">Iniciar Sesión</a>
+                        <span class="user-badge" id="userBadge">👤 Admin</span>
+                        <button id="logoutBtn" class="boton-login cerrar" style="display:none;">Cerrar</button>
+                    </div>
+                </header>
+            `;
+            configurarEventosHeader();
+        });
+
+    // Cargar Footer
+    fetch('formato/footer.html')
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('No se pudo cargar el footer');
+            }
+            return response.text();
+        })
+        .then(data => {
+            document.getElementById('footer-container').innerHTML = data;
+        })
+        .catch(error => {
+            console.error('Error cargando footer:', error);
+            // Fallback: mostrar footer por defecto
+            document.getElementById('footer-container').innerHTML = `
+                <footer class="footer">
+                    <div class="footer-inner">
+                        <div>
+                            <h4>UP~UnsitosPost</h4>
+                            <p>Gaceta Universitaria UNSIS</p>
+                        </div>
+                        <div>
+                            <h4>Contacto</h4>
+                            <p>Universidad de la Sierra Sur</p>
+                            <ul>
+                                <li>951 572 4100 ext. 1204</li>
+                                <li>informacion.escolares.unsis@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>Enlaces</h4>
+                            <p><a href="index.html">Inicio</a></p>
+                            <p><a href="#" id="loginFooter">Iniciar Sesión</a></p>
+                        </div>
+                    </div>
+                    <div class="footer-bottom">© 2026 UP~UnsitosPost. Todos los derechos reservados.</div>
+                </footer>
+            `;
+        });
+}
+
+function configurarEventosHeader() {
+    // Configurar menú hamburguesa
+    const abrirBtn = document.getElementById('abrirMenu');
+    const cerrarBtn = document.getElementById('cerrarMenu');
+    const menuLateral = document.getElementById('menuLateral');
+    const overlay = document.getElementById('overlayMenu');
+
+    function abrirMenu() {
+        if (menuLateral) menuLateral.classList.add('abierto');
+        if (overlay) overlay.classList.add('activo');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function cerrarMenu() {
+        if (menuLateral) menuLateral.classList.remove('abierto');
+        if (overlay) overlay.classList.remove('activo');
+        document.body.style.overflow = '';
+    }
+
+    if (abrirBtn) abrirBtn.addEventListener('click', abrirMenu);
+    if (cerrarBtn) cerrarBtn.addEventListener('click', cerrarMenu);
+    if (overlay) overlay.addEventListener('click', cerrarMenu);
+
+    // Cerrar al hacer clic en un enlace del menú
+    const enlaces = menuLateral?.querySelectorAll('a');
+    enlaces?.forEach(enlace => {
+        enlace.addEventListener('click', cerrarMenu);
+    });
+
+    // Login/Logout
+    const loginBtn = document.getElementById('loginBtn');
+    const loginFooter = document.getElementById('loginFooter');
+    const logoutBtn = document.getElementById('logoutBtn');
+
+    if (loginBtn) {
+        loginBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            login();
+        });
+    }
+
+    if (loginFooter) {
+        loginFooter.addEventListener('click', (e) => {
+            e.preventDefault();
+            login();
+        });
+    }
+
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            logout();
+        });
+    }
+
+    // Admin link
+    const adminLink = document.getElementById('adminLink');
+    if (adminLink) {
+        adminLink.addEventListener('click', (e) => {
+            e.preventDefault();
+            const adminPanel = document.getElementById('adminPanel');
+            if (adminPanel) {
+                adminPanel.scrollIntoView({ behavior: 'smooth' });
+            }
+        });
+    }
+
+    // Actualizar estado de login
+    const logged = localStorage.getItem('logeado') === 'true';
+    const userBadge = document.getElementById('userBadge');
+    
+    if (logged) {
+        if (adminLink) adminLink.style.display = 'block';
+        if (loginBtn) loginBtn.style.display = 'none';
+        if (userBadge) {
+            userBadge.style.display = 'inline';
+            userBadge.textContent = ' Admin';
+        }
+        if (logoutBtn) logoutBtn.style.display = 'inline';
+    } else {
+        if (adminLink) adminLink.style.display = 'none';
+        if (loginBtn) loginBtn.style.display = 'inline';
+        if (userBadge) userBadge.style.display = 'none';
+        if (logoutBtn) logoutBtn.style.display = 'none';
+    }
+}
 
 // ============================================================
 //  GUARDAR Y OBTENER DATOS
@@ -437,7 +604,7 @@ function editarServicio(index) {
 function mostrarMensaje(msg) {
     const el = document.getElementById('adminMensaje');
     if (!el) return;
-    el.innerHTML = `<div class="mensaje-exito">✅ ${msg}</div>`;
+    el.innerHTML = `<div class="mensaje-exito"> ${msg}</div>`;
     setTimeout(() => { el.innerHTML = ''; }, 3000);
 }
 
@@ -452,9 +619,9 @@ function login() {
     if (user === 'admin' && pass === 'admin123') {
         localStorage.setItem('logeado', 'true');
         mostrarAdmin(true);
-        alert('✅ Sesión iniciada');
+        alert(' Sesión iniciada');
     } else {
-        alert('❌ Usuario o contraseña incorrectos');
+        alert(' Usuario o contraseña incorrectos');
     }
 }
 
@@ -519,25 +686,25 @@ function setupMenu() {
 }
 
 // ============================================================
-//  EVENT LISTENERS
+//   INICIALIZACIÓN
 // ============================================================
+
 document.addEventListener('DOMContentLoaded', () => {
-    const datos = obtenerDatos();
+    // 1. Cargar header y footer
+    cargarComponentes();
     
-    // Cargar contenido desde datos (si hay cambios guardados)
+    // 2. Cargar datos y renderizar contenido
+    const datos = obtenerDatos();
     actualizarHero(datos);
     actualizarNoticias(datos);
     actualizarEventos(datos);
     actualizarServicios(datos);
     
-    // Configurar menú
-    setupMenu();
-    
-    // Hero controles
+    // 3. Hero controles
     document.getElementById('heroPrev')?.addEventListener('click', () => moverHero(-1));
     document.getElementById('heroNext')?.addEventListener('click', () => moverHero(1));
     
-    // Dots
+    // 4. Dots del hero
     document.getElementById('heroDots')?.addEventListener('click', (e) => {
         const dot = e.target.closest('.hero-dot');
         if (dot) {
@@ -551,38 +718,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
     
-    // Login/Logout
-    document.getElementById('loginBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        login();
-    });
-    document.getElementById('loginFooter')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        login();
-    });
-    document.getElementById('logoutBtn')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        logout();
-    });
-    
-    // Admin link
-    document.getElementById('adminLink')?.addEventListener('click', (e) => {
-        e.preventDefault();
-        const adminPanel = document.getElementById('adminPanel');
-        if (adminPanel) {
-            adminPanel.scrollIntoView({ behavior: 'smooth' });
-        }
-    });
-    
-    // Selector de módulo
+    // 5. Selector de módulo del admin
     document.getElementById('moduloSelect')?.addEventListener('change', cargarFormAdmin);
     
-    // Auto-rotación hero
+    // 6. Auto-rotación hero
     setInterval(() => moverHero(1), 6000);
     
-    // Verificar estado de login
+    // 7. Escuchar cambios en localStorage
+    window.addEventListener('storage', () => {
+        const datos = obtenerDatos();
+        actualizarHero(datos);
+        actualizarNoticias(datos);
+        actualizarEventos(datos);
+        actualizarServicios(datos);
+    });
+    
+    // 8. Verificar estado de login
     const logged = localStorage.getItem('logeado') === 'true';
-    mostrarAdmin(logged);
+    if (logged) {
+        cargarFormAdmin();
+    }
 });
 
 // ============================================================
