@@ -10,7 +10,7 @@
 
 <!-- ===== HEADER ===== -->
 <header class="header">
-    <div style="display:flex; align-items:center; gap:12px;">
+    <div class="header-left">
         <button class="menu-hamburguesa" id="abrirMenu" aria-label="Menú">☰</button>
         <a href="index.html" class="logo">
             <img src="imagenes/logoUNSIS.png" alt="UP">
@@ -19,8 +19,8 @@
     </div>
     <div class="header-actions">
         <a href="#" class="boton-login" id="loginBtn">Iniciar Sesión</a>
-        <span id="userBadge" style="color:#fff;display:none;"></span>
-        <button id="logoutBtn" class="boton-login" style="display:none;background:#5a0200;">Cerrar</button>
+        <span class="user-badge" id="userBadge">👤 Admin</span>
+        <button id="logoutBtn" class="boton-login cerrar" style="display:none;">Cerrar</button>
     </div>
 </header>
 
@@ -42,7 +42,7 @@
 <!-- ===== CONTENIDO PRINCIPAL ===== -->
 <div class="main-container">
 
-    <!-- ===== (CARRUSEL) ===== -->
+    <!-- ===== HERO ===== -->
     <section class="hero">
         <div class="hero-slides" id="heroSlides">
             <!-- Slide 1 -->
@@ -87,8 +87,8 @@
     <!-- ===== ACERCA ===== -->
     <section class="seccion">
         <h2 class="seccion-titulo">Acerca de</h2>
-        <p class="seccion-subtitulo" style="max-width:700px;margin:0 auto 10px;">
-            La Universidad  de la Sierra Sur es un espacio para la comunidad, con información actualizada sobre actividades académicas, culturales, deportivas y servicios.
+        <p class="seccion-subtitulo centrado">
+            La Gaceta Universitaria de la UNSIS es un espacio para la comunidad, con información actualizada sobre actividades académicas, culturales, deportivas y servicios.
         </p>
     </section>
 
@@ -124,7 +124,7 @@
     <section class="seccion" id="noticias">
         <h2 class="seccion-titulo">Contenido Destacado</h2>
         <p class="seccion-subtitulo">Avisos importantes que no puedes perderte</p>
-        <div class="grid-noticias">
+        <div class="grid-noticias" id="gridNoticias">
             <!-- Noticia 1 -->
             <div class="noticia-card">
                 <img src="imagenes/basquet.jpg" alt="Torneo de Baloncesto">
@@ -162,7 +162,7 @@
     <section class="seccion" id="eventos">
         <h2 class="seccion-titulo">Próximos Eventos</h2>
         <p class="seccion-subtitulo">Cartelera, concursos y actividades futuras</p>
-        <div class="timeline">
+        <div class="timeline" id="timelineEventos">
             <div class="timeline-item">
                 <div class="fecha">Próximamente</div>
                 <div class="contenido">
@@ -194,7 +194,7 @@
     <section class="seccion" id="servicios">
         <h2 class="seccion-titulo">Servicios</h2>
         <p class="seccion-subtitulo">Atención médica, odontológica y nutricional para la comunidad</p>
-        <div class="grid-noticias">
+        <div class="grid-noticias" id="gridServicios">
             <div class="noticia-card">
                 <img src="imagenes/ClinicaUniversitaria.jpg" alt="Clínica Universitaria">
                 <div class="cuerpo">
@@ -219,9 +219,9 @@
         </div>
     </section>
 
-    <!-- ===== PANEL DE ADMIN (oculto por defecto) ===== -->
+    <!-- ===== PANEL DE ADMIN ===== -->
     <section class="admin-panel oculto" id="adminPanel">
-        <h2> Panel de Administración</h2>
+        <h2>Panel de Administración</h2>
         <p>Aquí puedes editar el contenido. Los cambios se guardan en el navegador.</p>
         <div id="adminMensaje"></div>
 
@@ -253,8 +253,8 @@
         </div>
         <div>
             <h4>Enlaces</h4>
-            <p><a href="index.html" style="opacity:0.8;">Inicio</a></p>
-            <p><a href="#" id="loginFooter" style="opacity:0.8;">Iniciar Sesión</a></p>
+            <p><a href="index.html">Inicio</a></p>
+            <p><a href="#" id="loginFooter">Iniciar Sesión</a></p>
         </div>
     </div>
     <div class="footer-bottom">© 2026 UP~UnsitosPost. Todos los derechos reservados.</div>
